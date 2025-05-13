@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-red-800 text-white text-center py-4 flex flex-col items-center">
+        <h1 class="text-3xl font-bold"><b>MEOWOWI</b> <sub>by</sub> SAYLANI</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIqUmOwFdGUM7NiSmu1aiBOt9y_kxVu3Ctg&s" alt="" class="mt-2">
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white py-2">
+        <ul class="flex justify-center space-x-4">
+            <li><a href="#" class="hover:text-red-500">Home</a></li>
+            <li><a href="#" class="hover:text-red-500">About</a></li>
+            <li><a href="#" class="hover:text-red-500">Services</a></li>
+            <li><a href="#" class="hover:text-red-500">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-5">
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[1000px] md:w-[200px] rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE9WuXJ54CiQFxAaiij2mBHLuRRSEaMbB_XBxlnVn1nMOgNHAOLkl635Yyw0NbnRPJD6o&usqp=CAU" alt="Placeholder Image">
+                <div class="p-2">
+                    <h1 class="text-2xl font-bold">ALL NEW BRANDED EPS 10</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[1000px] md:w-[200px] rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs01cnEfXNcSrjRba52obfbeQcZ01_fjz_Hr7eGu9xDfpy4rd4mn5bvk0AAng-7CXjl78&usqp=CAU" alt="Image 2">
+                <div class="p-2">
+                    <h1 class="text-2xl font-bold flex-wrap">BRAND NEW POCO</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[1000px] md:w-[200px] rounded-xl" src="data:image/jpeg;base64,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" alt="Placeholder Image">
+               <div class="p-2">
+                    <h1 class="text-2xl font-bold flex-wrap">BRAND NEW POCO</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="bg-gray-500 h-4"></div>
+    <hr>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-5">
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[100px] md:w-[200px] rounded-xl" src="https://picsum.photos/100/200" alt="Placeholder Image">
+                <div class="p-2">
+                    <h1 class="text-2xl font-bold">ALL NEW BRANDED MEOWOWI EPS 10</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[100px] md:w-[200px] rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuN3gNP-5eTJziWyNdxM8BawmnmhdsCzCZCQ&s" alt="Image 2">
+                <div class="p-2">
+                    <h1 class="text-2xl font-bold flex-wrap">BRAND NEW POCO</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
+            <div class="p-2 flex items-center">
+                <img class="w-[100px] md:w-[200px] rounded-xl" src="https://picsum.photos/100/202" alt="Placeholder Image">
+                <div class="p-2">
+                    <h1 class="text-2xl font-bold">Ali</h1>
+                    <p class="text-sm text-gray-500">THE BETTER VERSION WITH HIGH SPECS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
