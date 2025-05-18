@@ -3,117 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MEOWOWI by SAYLANI</title>
+    <style>
+        /* Custom height for big cover image only */
+        .cover-image {
+            height: 500px;
+        }
+
+        /* Removed card-image fixed height to keep product images natural */
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
+
     <!-- Header -->
-    <header class="bg-red-800 text-white text-center py-4 flex flex-col items-center">
-        <h1 class="text-3xl font-bold"><b>MEOWOWI</b> by SAYLANI</h1>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIqUmOwFdGUM7NiSmu1aiBOt9y_kxVu3Ctg&s" alt="" class="mt-2">
+    <header class="bg-red-800 text-white text-center py-5 flex flex-col items-center shadow-lg">
+        <h1 class="text-4xl font-black tracking-wide">MEOWOWI <span class="font-bold">by SAYLANI</span></h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIqUmOwFdGUM7NiSmu1aiBOt9y_kxVu3Ctg&s" alt="Logo" class="mt-3 w-28 h-28 object-contain rounded-full shadow-md">
     </header>
 
     <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white py-2">
-        <ul class="flex justify-center space-x-4 relative">
-            <li class="group relative">
-                <a href="#" class="hover:text-red-500 text-white">Home</a>
-                <div class="absolute hidden group-hover:block bg-white text-red-800 rounded shadow-lg mt-2 transition-transform transform scale-y-0 group-hover:scale-y-100 origin-top duration-300 ease-in-out">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 2</a>
-                </div>
+    <nav class="bg-gray-800 text-white">
+        <ul class="flex justify-center space-x-8 py-3 text-lg font-semibold select-none">
+            <li class="relative group cursor-pointer">
+                <a href="#" class="hover:text-red-500">Home</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 1</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 2</a></li>
+                </ul>
             </li>
-            <li class="group relative">
-                <a href="#" class="hover:text-red-500 text-white">About</a>
-                <div class="absolute hidden group-hover:block bg-white text-red-800 rounded shadow-lg mt-2 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 2</a>
-                </div>
+            <li class="relative group cursor-pointer">
+                <a href="#" class="hover:text-red-500">About</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 1</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 2</a></li>
+                </ul>
             </li>
-            <li class="group relative">
-                <a href="#" class="hover:text-red-500 text-white">Services</a>
-                <div class="absolute hidden group-hover:block bg-white text-red-800 rounded shadow-lg mt-2 transition-transform transform translate-x-[-20px] group-hover:translate-x-0 duration-300 ease-in-out">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 2</a>
-                </div>
-            </li>
-            <li class="group relative">
-                <a href="#" class="hover:text-red-500 text-white">Contact</a>
-                <div class="absolute hidden group-hover:block bg-white text-red-800 rounded shadow-lg mt-2 transition-transform transform scale-75 group-hover:scale-100 duration-300 ease-in-out">
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Contact 1</a>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Contact 2</a>
-                </div>
+            <li class="relative group cursor-pointer">
+                <a href="#" class="hover:text-red-500">Services</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 1</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 2</a></li>
+                </ul>
             </li>
         </ul>
     </nav>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE9WuXJ54CiQFxAaiij2mBHLuRRSEaMbB_XBxlnVn1nMOgNHAOLkl635Yyw0NbnRPJD6o&usqp=CAU" alt="Placeholder Image">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">EPS 10</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
+    <!-- Cover Picture Area -->
+    <section class="w-full overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK-wbFRMOu7G6zp9rEzdXcnnxGEe2NjcvRg&s" alt="" class="max-w-md max-h-48 object-contain">
         </div>
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://bf1af2.a-cdn.akinoncloud.com/products/2025/03/06/353538/1c40fe28-b5c9-4efd-9394-92d23b33baf5_size256_cropCenter.jpg" alt="Image 2">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">BRAND NEW POCO</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://www.kktctelsim.com/_next/image?url=https%3A%2F%2Fonline.kktctelsim.com%2Fuploads%2Ftelsim_72_f329aff58a.png&w=256&q=75" alt="Placeholder Image">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">LONO</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="bg-gray-500 h-4"></div>
-    <hr>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-5">
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://techbazaar.pk/_next/image?url=https%3A%2F%2Fd32n7g8aqsy2ib.cloudfront.net%2Fimages%2FinventoryImages%2FbSNIWPsQJLNOm7YX1686226419426.webp&w=256&q=75" alt="Placeholder Image">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">ALL NEW BRANDED MEOWOWI EPS 10</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJz-1Hsl0NUB_B7fega6M1X-j7lJVr-i8k-w&s" alt="Image 2">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">BRAND NEW POCO</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
-        </div>
-        <div class="p-5 border-4 border-gray-500 rounded-lg shadow-md">
-            <div class="p-2 flex flex-col items-center">
-                <img class="w-full h-100 object-cover rounded-xl" src="https://img.goodfon.com/wallpaper/big/a/a2/xiaomi-smartfon-telefon.webp" alt="Placeholder Image">
-                <div class="p-2 text-center">
-                    <h1 class="text-lg md:text-xl font-bold">POCO</h1>
-                    <p class="text-sm text-gray-500">RS:29,000</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        <img src="https://niuxtech.lt/wp-content/uploads/2024/02/Xiaomi-Redmi-Note-13-Pro-5G-telefonas-kaina-akcija-nuolaida-NiuxTech-main-1600x1026.png"
+             alt="Cover Picture"
+             class="w-full object-cover cover-image opacity-50"
+             loading="lazy"/>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2025 MEOWOWI by SAYLANI. All rights reserved. <hr> <hr>
-            Candidate caught for copying this would be punished by SIR BASIT 
-        </p>
+    <!-- Main Content Grid -->
+    <main class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN3Rl1Ae42HzxoGYZ188QfhHrjk3J_6IcXtceYve64Exdyzyw-75SKQ8fokigYLmgkS6Y&usqp=CAU"
+                 alt="EPS 10"
+                 class="w-full object-cover"
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">EPS 10</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://bf1af2.a-cdn.akinoncloud.com/products/2025/03/06/353538/1c40fe28-b5c9-4efd-9394-92d23b33baf5_size256_cropCenter.jpg"
+                 alt="BRAND NEW POCO"
+                 class="w-full object-cover"
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">BRAND NEW POCO</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_0xG3DDPHD_exb9ejbchAYrT6Ga64Mq-yag&s"
+                 alt="POCO"
+                 class="w-full object-cover"
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">POCO</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+    </main>
+
+    <hr class="my-6 border-gray-400"/>
+
+    <section class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://techbazaar.pk/_next/image?url=https%3A%2F%2Fd32n7g8aqsy2ib.cloudfront.net%2Fimages%2FinventoryImages%2FbSNIWPsQJLNOm7YX1686226419426.webp&w=256&q=75"
+                 alt="ALL NEW BRANDED MEOWOWI EPS 10"
+                 class="w-full object-cover"
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">ALL NEW BRANDED MEOWOWI EPS 10</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJz-1Hsl0NUB_B7fega6M1X-j7lJVr-i8k-w&s"
+                 alt="BRAND NEW POCO"
+                 class="w-full object-cover"
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">BRAND NEW POCO</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJ4IGHhZBZLdaLpPUZ6uvzHqhziN8wC5MJJCvDmHL5nNXDnIDDqvNfEQgPbPS9H8_s4I&usqp=CAU"
+                 alt="POCO"
+                 class="w-full object-cover "
+                 loading="lazy"/>
+            <div class="p-4 text-center">
+                <h2 class="font-bold text-xl mb-1">POCO</h2>
+                <p class="text-gray-500 text-sm">RS:29,000</p>
+            </div>
+        </article>
+
+    </section>
+
+    <footer class="bg-gray-800 text-white text-center py-6 mt-10 select-none">
+        <p class="text-sm">&copy; 2025 MEOWOWI by SAYLANI. All rights reserved.</p>
+        <hr class="my-2 border-gray-600"/>
+        <p class="text-xs italic">Candidate caught for copying this would be punished by SIR BASIT</p>
     </footer>
+
 </body>
 </html>
