@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <title>MEOWOWI by SAYLANI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <style>
-        /* Custom height for big cover image only */
         .cover-image {
             height: 500px;
         }
-
-        /* Removed card-image fixed height to keep product images natural */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .price-tag {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover .price-tag {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #loader {
+            transition: opacity 0.5s ease-out;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Loading Animation -->
+    <div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-red-600"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-all opacity-0 translate-y-10 z-40" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Header -->
     <header class="bg-red-800 text-white text-center py-5 flex flex-col items-center shadow-lg">
@@ -62,7 +88,6 @@
 
     <!-- Main Content Grid -->
     <main class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
         <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN3Rl1Ae42HzxoGYZ188QfhHrjk3J_6IcXtceYve64Exdyzyw-75SKQ8fokigYLmgkS6Y&usqp=CAU"
                  alt="EPS 10"
@@ -95,13 +120,24 @@
                 <p class="text-gray-500 text-sm">RS:29,000</p>
             </div>
         </article>
-
     </main>
 
-    <hr class="my-6 border-gray-400"/>
+    <!-- YouTube Video Section -->
+    <section class="w-full max-w-4xl mx-auto p-5">
+        <div class="aspect-w-16 aspect-h-9 overflow-hidden rounded-2xl shadow-2xl">
+            <iframe 
+                class="w-full h-[500px]"
+                src="https://www.youtube.com/embed/6FZ88QPWqmo?si=OJcg6DPhaWH-8pIS&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
+    <!-- Additional Products Grid -->
     <section class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
         <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
             <img src="https://techbazaar.pk/_next/image?url=https%3A%2F%2Fd32n7g8aqsy2ib.cloudfront.net%2Fimages%2FinventoryImages%2FbSNIWPsQJLNOm7YX1686226419426.webp&w=256&q=75"
                  alt="ALL NEW BRANDED MEOWOWI EPS 10"
@@ -127,21 +163,131 @@
         <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJ4IGHhZBZLdaLpPUZ6uvzHqhziN8wC5MJJCvDmHL5nNXDnIDDqvNfEQgPbPS9H8_s4I&usqp=CAU"
                  alt="POCO"
-                 class="w-full object-cover "
+                 class="w-full object-cover"
                  loading="lazy"/>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">POCO</h2>
                 <p class="text-gray-500 text-sm">RS:29,000</p>
             </div>
         </article>
-
     </section>
 
-    <footer class="bg-gray-800 text-white text-center py-6 mt-10 select-none">
-        <p class="text-sm">&copy; 2025 MEOWOWI by SAYLANI. All rights reserved.</p>
-        <hr class="my-2 border-gray-600"/>
-        <p class="text-xs italic">Candidate caught for copying this would be punished by SIR BASIT</p>
+    <!-- Enhanced Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="mb-8">
+                    <h3 class="text-white text-xl font-bold mb-4">MEOWOWI by SAYLANI</h3>
+                    <p class="mb-4 text-sm">Leading provider of premium mobile phones and accessories. Authorized dealer of POCO and Xiaomi products in Pakistan.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="mb-8">
+                    <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shipping Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="mb-8">
+                    <h3 class="text-white text-lg font-semibold mb-4">Customer Support</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+92 300 1234567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>support@meowowi.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Karachi, Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="mb-8">
+                    <h3 class="text-white text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="mb-4 text-sm">Subscribe to receive updates about new products and special offers.</p>
+                    <form class="flex flex-col space-y-2">
+                        <input type="email" placeholder="Your email address" class="bg-gray-800 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <h3 class="text-white text-xl font-bold mb-6">Frequently Asked Questions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-white font-semibold mb-2">How do I track my order?</h4>
+                        <p class="text-sm">Once your order is shipped, you'll receive a tracking number via email to monitor your delivery status.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-2">What is your return policy?</h4>
+                        <p class="text-sm">We offer a 7-day return policy for unopened items in their original packaging.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-2">Do you offer warranty?</h4>
+                        <p class="text-sm">Yes, all our products come with a 1-year manufacturer warranty.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-2">What payment methods do you accept?</h4>
+                        <p class="text-sm">We accept credit cards, debit cards, and cash on delivery for all orders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-sm">&copy; 2025 MEOWOWI by SAYLANI. All rights reserved.</p>
+                <p class="text-xs italic mt-2 text-gray-500">Candidate caught for copying this would be punished by SIR BASIT</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('opacity-0');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Back to top button
+        window.onscroll = function() {
+            const btn = document.getElementById('backToTop');
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.classList.remove('opacity-0', 'translate-y-10');
+            } else {
+                btn.classList.add('opacity-0', 'translate-y-10');
+            }
+        };
+
+        // Update all product cards with animation class
+        document.querySelectorAll('article').forEach(article => {
+            article.classList.add('product-card');
+            const priceTag = article.querySelector('.text-gray-500');
+            if (priceTag) priceTag.classList.add('price-tag');
+        });
+    </script>
 </body>
 </html>
