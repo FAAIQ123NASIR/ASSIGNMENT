@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEOWOWI by SAYLANI</title>
+    <title>MEOWOWI</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <style>
+        /* Base styles */
         .cover-image {
             height: 500px;
         }
@@ -26,15 +27,142 @@
             opacity: 1;
             transform: translateY(0);
         }
-        #loader {
-            transition: opacity 0.5s ease-out;
+
+        /* Enhanced header styles */
+        .brand-title {
+            font-size: 5rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+            letter-spacing: 0.1em;
+            background: linear-gradient(to right, #ffffff, #f3f4f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        .logo-container {
+            position: relative;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, #dc2626, #991b1b);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        /* Loading animation styles */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .loading-text span {
+            display: inline-block;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #dc2626;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .loading-text span:nth-child(1) { animation: bounce 0.8s ease-in-out infinite 0.1s; }
+        .loading-text span:nth-child(2) { animation: bounce 0.8s ease-in-out infinite 0.2s; }
+        .loading-text span:nth-child(3) { animation: bounce 0.8s ease-in-out infinite 0.3s; }
+        .loading-text span:nth-child(4) { animation: bounce 0.8s ease-in-out infinite 0.4s; }
+
+        .cat-emoji {
+            display: inline-block;
+            font-size: 2rem;
+            margin-left: 8px;
+            animation: bounce 0.8s ease-in-out infinite 0.5s;
+        }
+
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #dc2626;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Image hover effects */
+        .product-image-container {
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            transition: transform 0.5s ease;
+        }
+
+        .product-image-container:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Footer styles */
+        .footer-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Loading Animation -->
-    <div id="loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
-        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-red-600"></div>
+    <div id="loader" class="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
+        <div class="loading-text">
+            <span>M</span>
+            <span>E</span>
+            <span>O</span>
+            <span>W</span>
+            <span class="cat-emoji">🐱</span>
+        </div>
+        <p class="text-gray-500 mt-4 text-sm">Loading amazing deals...</p>
     </div>
 
     <!-- Back to Top Button -->
@@ -42,38 +170,66 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Header -->
-    <header class="bg-red-800 text-white text-center py-5 flex flex-col items-center shadow-lg">
-        <h1 class="text-4xl font-black tracking-wide">MEOWOWI <span class="font-bold">by SAYLANI</span></h1>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIqUmOwFdGUM7NiSmu1aiBOt9y_kxVu3Ctg&s" alt="Logo" class="mt-3 w-28 h-28 object-contain rounded-full shadow-md">
+    <!-- Enhanced Header -->
+    <header class="bg-red-800 py-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-900 to-red-700"></div>
+        <div class="relative z-10 container mx-auto px-4 flex items-center justify-center gap-8">
+            <h1 class="brand-title font-black">MEOWOWI</h1>
+            <div class="logo-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpIqUmOwFdGUM7NiSmu1aiBOt9y_kxVu3Ctg&s" 
+                     alt="Logo" 
+                     class="w-48 h-48 object-contain rounded-full border-8 border-white shadow-2xl">
+            </div>
+        </div>
     </header>
 
-    <!-- Navigation Bar -->
-    <nav class="bg-gray-800 text-white">
+    <!-- Enhanced Navigation Bar -->
+    <nav class="bg-gray-800 text-white sticky top-0 z-30 shadow-lg">
         <ul class="flex justify-center space-x-8 py-3 text-lg font-semibold select-none">
             <li class="relative group cursor-pointer">
-                <a href="#" class="hover:text-red-500">Home</a>
-                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 1</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Home 2</a></li>
+                <a href="#" class="nav-link hover:text-red-500">Home</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-48 transform transition-all duration-300">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Featured Products</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">New Arrivals</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Special Offers</a></li>
                 </ul>
             </li>
             <li class="relative group cursor-pointer">
-                <a href="#" class="hover:text-red-500">About</a>
-                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 1</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub About 2</a></li>
+                <a href="#" class="nav-link hover:text-red-500">Products</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-48">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Smartphones</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Accessories</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Smart Gadgets</a></li>
                 </ul>
             </li>
             <li class="relative group cursor-pointer">
-                <a href="#" class="hover:text-red-500">Services</a>
-                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-40">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 1</a></li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-gray-200">Sub Service 2</a></li>
+                <a href="#" class="nav-link hover:text-red-500">Support</a>
+                <ul class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-red-800 rounded shadow-lg w-48">
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Contact Us</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">FAQ</a></li>
+                    <li><a href="#" class="block px-4 py-2 hover:bg-red-50">Service Centers</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
+
+    <!-- Feature Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-800 text-white py-3">
+        <div class="container mx-auto px-4 flex justify-center items-center space-x-8">
+            <div class="flex items-center">
+                <i class="fas fa-truck text-2xl mr-2"></i>
+                <span>Free Shipping</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-shield-alt text-2xl mr-2"></i>
+                <span>1 Year Warranty</span>
+            </div>
+            <div class="flex items-center">
+                <i class="fas fa-undo text-2xl mr-2"></i>
+                <span>Easy Returns</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Cover Picture Area -->
     <section class="w-full overflow-hidden relative">
@@ -88,36 +244,42 @@
 
     <!-- Main Content Grid -->
     <main class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN3Rl1Ae42HzxoGYZ188QfhHrjk3J_6IcXtceYve64Exdyzyw-75SKQ8fokigYLmgkS6Y&usqp=CAU"
-                 alt="EPS 10"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN3Rl1Ae42HzxoGYZ188QfhHrjk3J_6IcXtceYve64Exdyzyw-75SKQ8fokigYLmgkS6Y&usqp=CAU"
+                     alt="EPS 10"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">EPS 10</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
 
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://bf1af2.a-cdn.akinoncloud.com/products/2025/03/06/353538/1c40fe28-b5c9-4efd-9394-92d23b33baf5_size256_cropCenter.jpg"
-                 alt="BRAND NEW POCO"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://bf1af2.a-cdn.akinoncloud.com/products/2025/03/06/353538/1c40fe28-b5c9-4efd-9394-92d23b33baf5_size256_cropCenter.jpg"
+                     alt="BRAND NEW POCO"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">BRAND NEW POCO</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
 
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_0xG3DDPHD_exb9ejbchAYrT6Ga64Mq-yag&s"
-                 alt="POCO"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_0xG3DDPHD_exb9ejbchAYrT6Ga64Mq-yag&s"
+                     alt="POCO"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">POCO</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
     </main>
@@ -138,53 +300,59 @@
 
     <!-- Additional Products Grid -->
     <section class="p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://techbazaar.pk/_next/image?url=https%3A%2F%2Fd32n7g8aqsy2ib.cloudfront.net%2Fimages%2FinventoryImages%2FbSNIWPsQJLNOm7YX1686226419426.webp&w=256&q=75"
-                 alt="ALL NEW BRANDED MEOWOWI EPS 10"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://techbazaar.pk/_next/image?url=https%3A%2F%2Fd32n7g8aqsy2ib.cloudfront.net%2Fimages%2FinventoryImages%2FbSNIWPsQJLNOm7YX1686226419426.webp&w=256&q=75"
+                     alt="ALL NEW BRANDED MEOWOWI EPS 10"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">ALL NEW BRANDED MEOWOWI EPS 10</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
 
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJz-1Hsl0NUB_B7fega6M1X-j7lJVr-i8k-w&s"
-                 alt="BRAND NEW POCO"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJz-1Hsl0NUB_B7fega6M1X-j7lJVr-i8k-w&s"
+                     alt="BRAND NEW POCO"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">BRAND NEW POCO</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
 
-        <article class="border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden transition-shadow hover:shadow-xl">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJ4IGHhZBZLdaLpPUZ6uvzHqhziN8wC5MJJCvDmHL5nNXDnIDDqvNfEQgPbPS9H8_s4I&usqp=CAU"
-                 alt="POCO"
-                 class="w-full object-cover"
-                 loading="lazy"/>
+        <article class="product-card border-4 border-gray-500 rounded-lg shadow-md bg-white overflow-hidden">
+            <div class="product-image-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShJ4IGHhZBZLdaLpPUZ6uvzHqhziN8wC5MJJCvDmHL5nNXDnIDDqvNfEQgPbPS9H8_s4I&usqp=CAU"
+                     alt="POCO"
+                     class="w-full object-cover"
+                     loading="lazy"/>
+            </div>
             <div class="p-4 text-center">
                 <h2 class="font-bold text-xl mb-1">POCO</h2>
-                <p class="text-gray-500 text-sm">RS:29,000</p>
+                <p class="text-gray-500 text-sm price-tag">RS:29,000</p>
             </div>
         </article>
     </section>
 
     <!-- Enhanced Footer -->
-    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-gray-300 pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <!-- Main Footer Content -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Company Info -->
                 <div class="mb-8">
-                    <h3 class="text-white text-xl font-bold mb-4">MEOWOWI by SAYLANI</h3>
-                    <p class="mb-4 text-sm">Leading provider of premium mobile phones and accessories. Authorized dealer of POCO and Xiaomi products in Pakistan.</p>
+                    <h3 class="text-white text-xl font-bold mb-4">MEOWOWI</h3>
+                    <p class="mb-4 text-sm leading-relaxed">Leading provider of premium mobile phones and accessories. Authorized dealer of POCO and Xiaomi products in Pakistan.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon hover:text-white"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="social-icon hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="social-icon hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="social-icon hover:text-white"><i class="fab fa-youtube text-xl"></i></a>
                     </div>
                 </div>
 
@@ -192,11 +360,11 @@
                 <div class="mb-8">
                     <h3 class="text-white text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
-                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:text-white transition">Shipping Info</a></li>
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+                        <li><a href="#" class="footer-link">Shipping Info</a></li>
                     </ul>
                 </div>
 
@@ -230,32 +398,9 @@
                 </div>
             </div>
 
-            <!-- FAQ Section -->
-            <div class="border-t border-gray-800 mt-12 pt-8">
-                <h3 class="text-white text-xl font-bold mb-6">Frequently Asked Questions</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="text-white font-semibold mb-2">How do I track my order?</h4>
-                        <p class="text-sm">Once your order is shipped, you'll receive a tracking number via email to monitor your delivery status.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-semibold mb-2">What is your return policy?</h4>
-                        <p class="text-sm">We offer a 7-day return policy for unopened items in their original packaging.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-semibold mb-2">Do you offer warranty?</h4>
-                        <p class="text-sm">Yes, all our products come with a 1-year manufacturer warranty.</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-semibold mb-2">What payment methods do you accept?</h4>
-                        <p class="text-sm">We accept credit cards, debit cards, and cash on delivery for all orders.</p>
-                    </div>
-                </div>
-            </div>
-
             <!-- Copyright -->
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-sm">&copy; 2025 MEOWOWI by SAYLANI. All rights reserved.</p>
+                <p class="text-sm">&copy; 2025 MEOWOWI. All rights reserved.</p>
                 <p class="text-xs italic mt-2 text-gray-500">Candidate caught for copying this would be punished by SIR BASIT</p>
             </div>
         </div>
@@ -266,10 +411,15 @@
         // Loading animation
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
-            loader.classList.add('opacity-0');
+            loader.style.opacity = '1';
+            loader.style.transition = 'opacity 0.5s ease-out';
+            
             setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1500);
         });
 
         // Back to top button
